@@ -28,7 +28,7 @@ public class ProvenanceServlet extends HttpServlet {
                 String lastToken = path.substring(1+path.lastIndexOf('/'));
                 id = Integer.parseInt(lastToken);
             }
-            catch (Exception x) {} // no age parameter, age not numeric, ..
+            catch (Exception x) {} // no id path token, id not numeric, ..
         }
         if (id==-1) {
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);

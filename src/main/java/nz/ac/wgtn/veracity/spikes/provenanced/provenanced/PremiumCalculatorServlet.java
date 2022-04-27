@@ -45,7 +45,7 @@ public class PremiumCalculatorServlet extends HttpServlet {
                 String provenanceURL = "http://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/provenance/" + provenanceId;
                 response.setHeader("provenance",provenanceURL);
             }
-            catch (Exception x) {} // no age parameter, age not numeric, ..
+            catch (Exception x) {} // no age path token, age not numeric, ..
         }
         if (premium==-1) {
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
