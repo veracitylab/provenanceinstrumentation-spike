@@ -22,4 +22,13 @@
         <url-pattern>/instrumented/premiumcalculator/*</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>provenance</servlet-name>
+        <servlet-class>nz.ac.wgtn.veracity.spikes.provenanced.provenanced.ProvenanceServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>provenance</servlet-name>
+        <url-pattern>/provenance/*</url-pattern>
+    </servlet-mapping>
+
 </web-app>

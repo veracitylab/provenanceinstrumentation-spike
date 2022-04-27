@@ -41,7 +41,7 @@ public class DynamicInstrumentation {
 
         @Advice.OnMethodEnter
         public static void onEntry(@Advice.Origin Executable method)  {
-            ProvenanceStore.add(method.getDeclaringClass() + "::" + method.getName());
+            ProvenanceCollector.add(method.getDeclaringClass().getName() + "::" + method.getName());
         }
     }
 

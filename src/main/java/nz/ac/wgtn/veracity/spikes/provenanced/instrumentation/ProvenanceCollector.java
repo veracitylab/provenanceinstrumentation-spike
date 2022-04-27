@@ -3,7 +3,7 @@ package nz.ac.wgtn.veracity.spikes.provenanced.instrumentation;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProvenanceStore {
+public class ProvenanceCollector {
 
     public static ThreadLocal<List<String>> methods = new ThreadLocal<>();
 

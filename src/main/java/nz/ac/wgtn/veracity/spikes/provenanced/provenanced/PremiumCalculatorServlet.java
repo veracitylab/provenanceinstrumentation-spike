@@ -3,7 +3,7 @@ package nz.ac.wgtn.veracity.spikes.provenanced.provenanced;
 import nz.ac.wgtn.veracity.spikes.provenanced.commons.Client;
 import nz.ac.wgtn.veracity.spikes.provenanced.commons.PremiumCalculator;
 import nz.ac.wgtn.veracity.spikes.provenanced.instrumentation.DynamicInstrumentation;
-import nz.ac.wgtn.veracity.spikes.provenanced.instrumentation.ProvenanceStore;
+import nz.ac.wgtn.veracity.spikes.provenanced.instrumentation.ProvenanceCollector;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -37,11 +37,13 @@ public class PremiumCalculatorServlet extends HttpServlet {
                 Client client = new Client();
                 client.setAge(age);
                 premium = PremiumCalculator.calculate(client);
-                List<String> provenance = ProvenanceStore.getAndReset();
-                System.out.println("provenance: " + provenance);
+                // get from execution
+                List<String> provenance = ProvenanceCollector.getAndReset();
+                // store for provenance requests
+                int provenanceId = ProvenanceStore.store(provenance);
                 request.getSession().setAttribute("provenance",provenance);
-//                String provenanceURL = request.
-//                System.out.println("provenance url: " + provenanceURL);
+                String provenanceURL = "http://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/provenance/" + provenanceId;
+                response.setHeader("provenance",provenanceURL);
             }
             catch (Exception x) {} // no age parameter, age not numeric, ..
         }
