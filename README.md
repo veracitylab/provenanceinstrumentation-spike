@@ -9,7 +9,7 @@ Requirements to run this:
 1. Java version 11 or better
 2. Maven 3.8.4 (older versions may also work)
 3. port 8080 must be free
-4. `curl` must be isntalled (although a different HTTP client incl a browser could also be used)
+4. `curl` must be installed (although a different HTTP client incl a browser could also be used)
 
 ## Building and Running the Services
 

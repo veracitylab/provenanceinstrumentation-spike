@@ -1,10 +1,5 @@
 package nz.ac.wgtn.veracity.spikes.provenanced.provenanced;
 
-import nz.ac.wgtn.veracity.spikes.provenanced.commons.Client;
-import nz.ac.wgtn.veracity.spikes.provenanced.commons.PremiumCalculator;
-import nz.ac.wgtn.veracity.spikes.provenanced.instrumentation.DynamicInstrumentation;
-import nz.ac.wgtn.veracity.spikes.provenanced.instrumentation.ProvenanceCollector;
-
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

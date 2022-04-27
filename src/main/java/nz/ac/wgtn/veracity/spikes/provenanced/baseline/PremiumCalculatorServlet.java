@@ -19,9 +19,7 @@ public class PremiumCalculatorServlet extends HttpServlet {
             try {
                 String lastToken = path.substring(1+path.lastIndexOf('/'));
                 int age = Integer.parseInt(lastToken);
-                Client client = new Client();
-                client.setAge(age);
-                premium = PremiumCalculator.calculate(client);
+                premium = PremiumCalculator.calculate(age);
             }
             catch (Exception x) {} // no age parameter, age not numeric, ..
         }

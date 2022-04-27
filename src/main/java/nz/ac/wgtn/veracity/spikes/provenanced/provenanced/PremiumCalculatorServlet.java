@@ -1,6 +1,5 @@
 package nz.ac.wgtn.veracity.spikes.provenanced.provenanced;
 
-import nz.ac.wgtn.veracity.spikes.provenanced.commons.Client;
 import nz.ac.wgtn.veracity.spikes.provenanced.commons.PremiumCalculator;
 import nz.ac.wgtn.veracity.spikes.provenanced.instrumentation.DynamicInstrumentation;
 import nz.ac.wgtn.veracity.spikes.provenanced.instrumentation.ProvenanceCollector;
@@ -22,8 +21,7 @@ public class PremiumCalculatorServlet extends HttpServlet {
     static {
         DynamicInstrumentation.transform(PremiumCalculatorServlet.class);
         DynamicInstrumentation.transform(PremiumCalculator.class);
-        DynamicInstrumentation.transform(Client.class);
-    }
+19    }
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -34,9 +32,7 @@ public class PremiumCalculatorServlet extends HttpServlet {
             try {
                 String lastToken = path.substring(1+path.lastIndexOf('/'));
                 int age = Integer.parseInt(lastToken);
-                Client client = new Client();
-                client.setAge(age);
-                premium = PremiumCalculator.calculate(client);
+                premium = PremiumCalculator.calculate(age);
                 // get from execution
                 List<String> provenance = ProvenanceCollector.getAndReset();
                 // store for provenance requests
