@@ -21,7 +21,7 @@ public class PremiumCalculatorServlet extends HttpServlet {
     static {
         DynamicInstrumentation.transform(PremiumCalculatorServlet.class);
         DynamicInstrumentation.transform(PremiumCalculator.class);
-19    }
+    }
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
